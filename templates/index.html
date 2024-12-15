@@ -4,38 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú de Nochebuena</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
+            background-color: #f8f9fa;
+            color: #333;
             padding: 20px;
         }
-        .menu {
-            font-size: 18px;
+        header {
+            background-color: #ff4c4c;
+            color: white;
+            padding: 10px 0;
             margin-bottom: 20px;
         }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .menu-section {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            border: 2px solid #ff4c4c;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        .menu-section h2 {
+            color: #ff4c4c;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        .menu-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .menu-section ul li {
+            margin: 5px 0;
+            font-size: 1.1rem;
+        }
         .rasca {
-            background-color: gray;
-            color: white;
-            width: 300px;
-            height: 50px;
-            margin: 0 auto;
+            margin-top: 30px;
             padding: 15px;
+            background-color: #ff4c4c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .rasca:hover {
+            background-color: #d43d3d;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <h1>Menú de Nochebuena</h1>
-    <div class="menu">
-        <p>Plato 1: Cena navideña</p>
-        <p>Plato 2: Pavo asado</p>
-        <p>Plato 3: Tarta de manzana</p>
-        <p>Plato 4: Vino tinto</p>
+    <header>
+        <h1>🎄 Menú de Nochebuena 🎄</h1>
+    </header>
+
+    <div class="menu-section">
+        <h2>Bebidas</h2>
+        <ul>
+            <li>Vino Tinto Reserva</li>
+            <li>Cava Brut Nature</li>
+            <li>Zumo de Naranja Natural</li>
+        </ul>
     </div>
 
-    <div class="rasca" onclick="alert('{{ frase }}')">
-        ¡Rasca aquí para ver tu mensaje!
+    <div class="menu-section">
+        <h2>Entrantes</h2>
+        <ul>
+            <li>Jamón Ibérico de Bellota</li>
+            <li>Tabla de Quesos Artesanales</li>
+            <li>Ensalada de Mariscos</li>
+        </ul>
     </div>
+
+    <div class="menu-section">
+        <h2>Plato Principal</h2>
+        <ul>
+            <li>Pavo Asado con Salsa de Castañas</li>
+            <li>Lomo de Merluza con Reducción de Limón</li>
+        </ul>
+    </div>
+
+    <div class="menu-section">
+        <h2>Postre</h2>
+        <ul>
+            <li>Tarta de Manzana con Helado de Vainilla</li>
+            <li>Tronco de Navidad de Chocolate</li>
+        </ul>
+    </div>
+
+    <button class="rasca" onclick="mostrarMensaje('{{ frase }}')">
+        🎁 ¡Pulse aquí para tu mensaje sorpresa! 🎁
+    </button>
+
+    <footer>
+        <p>🎅 Que tengas una maravillosa Nochebuena llena de alegría y amor. 🎅</p>
+    </footer>
+
+    <script>
+        function mostrarMensaje(frase) {
+            Swal.fire({
+                title: '🎅 Mensaje Navideño 🎅',
+                text: frase,
+                icon: 'info',
+                confirmButtonText: '¡Feliz Navidad!'
+            });
+        }
+    </script>
 </body>
 </html>
