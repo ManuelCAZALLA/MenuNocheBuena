@@ -3,6 +3,9 @@ from flask import Flask, render_template
 import random
 
 app = Flask(__name__)
+from flask_cors import CORS
+CORS(app)
+
 
 # Lista de frases para la Nochebuena
 frases = [
@@ -20,4 +23,4 @@ def home():
     return render_template('index.html', frase = frase_aleatoria)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5050, debug=True)
